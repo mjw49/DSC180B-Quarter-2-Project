@@ -4,7 +4,7 @@ from .motif_counting import *
 from .motif_adjacency_matrix import *
 from .k_clusters import *
 
-def run_algorithm(fp, motif, k):
+def motif_algorithm(fp, motif, k):
     
     edge_counts = motif_counting(fp, motif)
     motif_adjacency_matrix = create_adjacency_matrix(edge_counts)
