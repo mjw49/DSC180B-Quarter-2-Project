@@ -9,5 +9,4 @@ def run_algorithm(fp, motif, k):
     edge_counts = motif_counting(fp, motif)
     motif_adjacency_matrix = create_motif_adjacency_matrix(edge_counts)
     cluster_dict = k_clusters(motif_adjacency_matrix, k)    
-    print(cluster_dict)
     return cluster_dict
