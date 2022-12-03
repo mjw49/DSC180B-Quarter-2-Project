@@ -1,3 +1,4 @@
+import numpy as np
 from sklearn.cluster import KMeans
 
 def k_clusters(W, k):
