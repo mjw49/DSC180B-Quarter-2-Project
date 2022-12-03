@@ -16,7 +16,7 @@ USER root
 # RUN apt-get -y install
 
 # 3) install packages using notebook user
-USER joyvan
+USER root
 
 # RUN conda install -y scikit-learn
 
