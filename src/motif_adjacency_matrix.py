@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-def create_motif_adjacency_matrix(fp):
+def create_motif_adjacency_matrix(edge_dict):
     
     #get all unique nodes
     first_half = [x[0] for x in edge_dict.keys()]
