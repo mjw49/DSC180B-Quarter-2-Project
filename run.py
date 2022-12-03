@@ -4,7 +4,7 @@ import sys
 import json
 
 from src import motif_algorithm
-from motif_algorithm import run algorithm
+from motif_algorithm import run_algorithm
 
 def main(targets):
     if 'test' in targets:
