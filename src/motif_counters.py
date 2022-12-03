@@ -1,5 +1,7 @@
 #each of the 13 motif counting functions are stored here
 
+import itertools
+
 def count_M1(adj_list_away, adj_list_toward):
 
     vertices = [] #store vertices
