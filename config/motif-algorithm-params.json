@@ -1,5 +1,5 @@
 {
   "fp": "test/testdata.txt",
-  "motif": 'M7'
+  "motif": 'M7',
   "k": 2
 }
