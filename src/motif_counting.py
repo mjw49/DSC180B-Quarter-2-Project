@@ -75,7 +75,7 @@ def motif_counting(fp, motif):
         motif_count, edge_dict = count_M13(adj_list_away, adj_list_toward)
     
     #display motif count
-    print("The number of instances of " + motif + "is" + str(motif_count))
+    print("The number of instances of " + motif + " is " + str(motif_count))
     
     #return the edge dictionary
     return edge_dict
