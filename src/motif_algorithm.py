@@ -7,7 +7,7 @@ from .k_clusters import *
 def run_algorithm(fp, motif, k):
     
     edge_counts = motif_counting(fp, motif)
-    motif_adjacency_matrix = create_adjacency_matrix(edge_counts)
+    motif_adjacency_matrix = create_motif_adjacency_matrix(edge_counts)
     cluster_dict = k_clusters(motif_adjacency_matrix, k)
     
     return cluster_dict
