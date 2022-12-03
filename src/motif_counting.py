@@ -16,8 +16,8 @@ def motif_counting(fp, motif):
     data = pd.read_csv(fp, delimiter = ' ', usecols = ['FromNodeId', 'ToNodeId'])
     
     #initialize adjacency lists
-    min_node = data['FromNodeId'].min()
-    max_node = data['FromNodeId'].max()
+    min_node = min(data['FromNodeId'].min(), data['ToNodeId'].min())
+    max_node = max(data['FromNodeId'].max(), data['ToNodeId'].max())
 
     adj_list_away = {}
     adj_list_toward = {}
