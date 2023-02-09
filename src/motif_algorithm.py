@@ -24,7 +24,7 @@ def run_k_clusters_algorithm(fp, motif, k):
 
 def run_single_cluster_sampling_algorithm(fp, motif, sample_percent):
     
-    edge_counts = motif_counting(fp, motif, sample_percent)
+    edge_counts = sample_motif_counting(fp, motif, sample_percent)
     motif_adjacency_matrix = create_motif_adjacency_matrix(edge_counts)*(1/sample_percent)
     optimal_cluster = single_cluster(motif_adjacency_matrix)
     print("The optimal cluster has " + str(optimal_cluster.shape[0]) + " nodes.")
