@@ -2,6 +2,7 @@
 
 import itertools
 import numpy as np
+from tqdm import tqdm
 
 def sampling_count_M1(all_nodes, adj_list_away, adj_list_toward, sample_percent):
 
