@@ -1,5 +1,5 @@
 {
   "fp": "test/reachability_test.txt",
   "motif": "M10",
-  "sample_percent": 0.5
+  "sample_percent": 0.1
 }
