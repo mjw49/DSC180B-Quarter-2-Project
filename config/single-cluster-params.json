@@ -1,4 +1,4 @@
 {
-  "fp": "data/out/reachability_out.txt",
+  "fp": "test/reachability_out.txt",
   "motif": "M10"
 }
