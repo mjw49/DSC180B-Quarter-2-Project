@@ -12,7 +12,12 @@ def main(targets):
         motif_algorithm.run_k_clusters_algorithm(**data_params)
 
     if 'city_single' in targets:
-        with open('config/single-cluster-params.json') as fh:
+        with open('config/city-single-cluster-params.json') as fh:
+            data_params = json.load(fh)
+        motif_algorithm.run_single_cluster_algorithm(**data_params)
+
+    if 'stanford_single' in targets:
+        with open('config/stanford-single-cluster-params.json') as fh:
             data_params = json.load(fh)
         motif_algorithm.run_single_cluster_algorithm(**data_params)
 
