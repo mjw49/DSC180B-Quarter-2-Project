@@ -1,3 +1,5 @@
+import numpy as np
+
 def single_cluster(W):
     '''
     Input: motif adjacency matrix (W)
