@@ -1,6 +1,9 @@
 import numpy as np
 
 def single_cluster(W):
+
+    print("started single cluster")
+    
     '''
     Input: motif adjacency matrix (W)
     Output:
@@ -29,7 +32,7 @@ def single_cluster(W):
         eigenpairs.append((eigenvalues[i], eigenvectors[:,i]))
     
     # keep the eigenvector corresponding to the second smallest eigenvalue
-    second_smallest_eigenvector = np.array(sorted(eigenpairs)[1][1])
+    second_smallest_eigenvector = np.array(sorted(eigenpairs, key = lambda x: x[0])[1][1])
     
     # Step 4: Create a vector sigma whose sorted value index i corresponds to node i
     # -----------------------------------------

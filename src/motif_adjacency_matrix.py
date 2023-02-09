@@ -3,6 +3,8 @@ import pandas as pd
 
 def create_motif_adjacency_matrix(edge_dict):
     
+    print("creating motif adjacency matrix...")
+
     #get all unique nodes
     first_half = [x[0] for x in edge_dict.keys()]
     second_half = [x[1] for x in edge_dict.keys()]
