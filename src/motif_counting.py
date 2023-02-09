@@ -4,6 +4,7 @@ import itertools
 
 #import motif counting functions from motif-counters.py
 from .motif_counters import *
+from .sampling_motif_counters import *
 
 def motif_counting(fp, motif):
     
