@@ -1,7 +1,6 @@
 #each of the 13 naive motif counting functions are stored here
 
 import itertools
-import numpy as np
 from tqdm import tqdm
 
 def count_M1(adj_list_away, adj_list_toward):
@@ -310,7 +309,7 @@ def count_M10(adj_list_away, adj_list_toward):
                 
                 #if any of the adjacency lists are empty (nan used for placeholder, SKIP)
                 if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
-                    print("EMPTINESS DETECTED")
+                    #print("EMPTINESS DETECTED")
                     break
                 
                 if ((vertex2 not in adj_list_away[vertex1]) & (vertex3 not in adj_list_away[vertex1])
