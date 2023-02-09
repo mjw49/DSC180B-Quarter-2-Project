@@ -7,7 +7,7 @@ def sampling_count_M1(all_nodes, adj_list_away, adj_list_toward, sample_percent)
 
     vertices = [] #store vertices
     
-    num_sample = all_nodes.shape[0]*sample_percent // 1
+    num_sample = int(all_nodes.shape[0]*sample_percent)
 
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
@@ -45,7 +45,7 @@ def sampling_count_M2(all_nodes, adj_list_away, adj_list_toward, sample_percent)
 
     vertices = [] #store vertices
     
-    num_sample = all_nodes.shape[0]*sample_percent // 1
+    num_sample = int(all_nodes.shape[0]*sample_percent)
 
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
@@ -83,7 +83,7 @@ def sampling_count_M3(all_nodes, adj_list_away, adj_list_toward, sample_percent)
 
     vertices = [] #store vertices
     
-    num_sample = all_nodes.shape[0]*sample_percent // 1
+    num_sample = int(all_nodes.shape[0]*sample_percent)
 
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
@@ -121,7 +121,7 @@ def sampling_count_M4(all_nodes, adj_list_away, adj_list_toward, sample_percent)
 
     vertices = []
 
-    num_sample = all_nodes.shape[0]*sample_percent // 1
+    num_sample = int(all_nodes.shape[0]*sample_percent)
     
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
@@ -160,7 +160,7 @@ def sampling_count_M5(all_nodes, adj_list_away, adj_list_toward, sample_percent)
     
     vertices = []
     
-    num_sample = all_nodes.shape[0]*sample_percent // 1
+    num_sample = int(all_nodes.shape[0]*sample_percent)
 
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
@@ -198,7 +198,7 @@ def sampling_count_M6(all_nodes, adj_list_away, adj_list_toward, sample_percent)
     
     vertices = []
     
-    num_sample = all_nodes.shape[0]*sample_percent // 1
+    num_sample = int(all_nodes.shape[0]*sample_percent)
 
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
@@ -236,7 +236,7 @@ def sampling_count_M7(all_nodes, adj_list_away, adj_list_toward, sample_percent)
     
     vertices = []
     
-    num_sample = all_nodes.shape[0]*sample_percent // 1
+    num_sample = int(all_nodes.shape[0]*sample_percent)
 
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
@@ -274,7 +274,7 @@ def sampling_count_M8(all_nodes, adj_list_away, adj_list_toward, sample_percent)
 
     vertices = []
     
-    num_sample = all_nodes.shape[0]*sample_percent // 1
+    num_sample = int(all_nodes.shape[0]*sample_percent)
 
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
@@ -312,7 +312,7 @@ def sampling_count_M9(all_nodes, adj_list_away, adj_list_toward, sample_percent)
     
     vertices = []
     
-    num_sample = all_nodes.shape[0]*sample_percent // 1
+    num_sample = int(all_nodes.shape[0]*sample_percent)
 
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
@@ -350,7 +350,7 @@ def sampling_count_M10(all_nodes, adj_list_away, adj_list_toward, sample_percent
     
     vertices = []
     
-    num_sample = all_nodes.shape[0]*sample_percent // 1
+    num_sample = int(all_nodes.shape[0]*sample_percent)
 
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
@@ -388,7 +388,7 @@ def sampling_count_M11(all_nodes, adj_list_away, adj_list_toward, sample_percent
 
     vertices = []
     
-    num_sample = all_nodes.shape[0]*sample_percent // 1
+    num_sample = int(all_nodes.shape[0]*sample_percent)
 
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
@@ -426,7 +426,7 @@ def sampling_count_M12(all_nodes, adj_list_away, adj_list_toward, sample_percent
     
     vertices = []
     
-    num_sample = all_nodes.shape[0]*sample_percent // 1
+    num_sample = int(all_nodes.shape[0]*sample_percent)
 
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
@@ -464,7 +464,7 @@ def sampling_count_M13(all_nodes, adj_list_away, adj_list_toward, sample_percent
 
     vertices = []
     
-    num_sample = all_nodes.shape[0]*sample_percent // 1
+    num_sample = int(all_nodes.shape[0]*sample_percent)
 
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
