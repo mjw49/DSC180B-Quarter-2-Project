@@ -7,7 +7,7 @@ from src import motif_algorithm
 
 def main(targets):
     if 'test' in targets:
-        with open('config/motif-algorithm-params.json') as fh:
+        with open('config/single-cluster-params.json') as fh:
             data_params = json.load(fh)
         motif_algorithm.run_algorithm(**data_params)
 
