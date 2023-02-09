@@ -2,6 +2,7 @@
 
 import itertools
 from tqdm import tqdm
+import numpy as np
 
 def count_M1(adj_list_away, adj_list_toward):
 
@@ -307,7 +308,7 @@ def count_M10(adj_list_away, adj_list_toward):
         for vertex2 in adj_list_toward[vertex1]: #checks second vertex
             for vertex3 in adj_list_toward[vertex1]: #checks third vertex
                 
-                #if any of the adjacency lists are empty (nan used for placeholder, SKIP)
+                #if any of the adjacency lists are empty (nan used for placeholder) SKIP thia iteration
                 if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                     #print("EMPTINESS DETECTED")
                     break
