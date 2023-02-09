@@ -1,6 +1,7 @@
 #each of the 13 naive motif counting functions are stored here
 
 import itertools
+import numpy as np
 from tqdm import tqdm
 
 def count_M1(adj_list_away, adj_list_toward):
