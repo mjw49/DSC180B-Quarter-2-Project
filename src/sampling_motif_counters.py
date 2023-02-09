@@ -12,7 +12,7 @@ def sampling_count_M1(all_nodes, adj_list_away, adj_list_toward, sample_percent)
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
     
-    for vertex1 in adj_list_away: #checks each starting vertex
+    for vertex1 in tqdm(adj_list_away): #checks each starting vertex
         for vertex2 in adj_list_away[vertex1]: #access all possible nodes (vertex 2) from vertex 1
             for vertex3 in sampled_nodes:
                 
@@ -50,7 +50,7 @@ def sampling_count_M2(all_nodes, adj_list_away, adj_list_toward, sample_percent)
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
     
-    for vertex1 in adj_list_away: #checks each starting vertex
+    for vertex1 in tqdm(adj_list_away): #checks each starting vertex
         for vertex2 in adj_list_away[vertex1]: #access all possible nodes (vertex 2) from vertex 1
             
             #randomly sample a third vertex at uniform from all possible nodes
@@ -88,7 +88,7 @@ def sampling_count_M3(all_nodes, adj_list_away, adj_list_toward, sample_percent)
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
     
-    for vertex1 in adj_list_away: #checks each starting vertex
+    for vertex1 in tqdm(adj_list_away): #checks each starting vertex
         for vertex2 in adj_list_away[vertex1]: #access all possible nodes (vertex 2) from vertex 1
             
             #randomly sample a third vertex at uniform from all possible nodes
@@ -126,7 +126,7 @@ def sampling_count_M4(all_nodes, adj_list_away, adj_list_toward, sample_percent)
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
     
-    for vertex1 in adj_list_away: #checks each starting vertex
+    for vertex1 in tqdm(adj_list_away): #checks each starting vertex
         for vertex2 in adj_list_away[vertex1]: #access all possible nodes (vertex 2) from vertex 1
             
             #randomly sample a third vertex at uniform from all possible nodes
@@ -165,7 +165,7 @@ def sampling_count_M5(all_nodes, adj_list_away, adj_list_toward, sample_percent)
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
     
-    for vertex1 in adj_list_away: #checks each parent node
+    for vertex1 in tqdm(adj_list_away): #checks each parent node
         for vertex2 in adj_list_away[vertex1]: #checks first child node
             
             #randomly sample a third vertex at uniform from all possible nodes
@@ -203,7 +203,7 @@ def sampling_count_M6(all_nodes, adj_list_away, adj_list_toward, sample_percent)
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
     
-    for vertex1 in adj_list_away: #checks each parent node
+    for vertex1 in tqdm(adj_list_away): #checks each parent node
         for vertex2 in adj_list_away[vertex1]: #checks first child node
             
             #randomly sample a third vertex at uniform from all possible nodes
@@ -241,7 +241,7 @@ def sampling_count_M7(all_nodes, adj_list_away, adj_list_toward, sample_percent)
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
     
-    for vertex1 in adj_list_away: #checks each parent node
+    for vertex1 in tqdm(adj_list_away): #checks each parent node
         for vertex2 in adj_list_toward[vertex1]: #checks first child node
             
             #randomly sample a third vertex at uniform from all possible nodes
@@ -279,7 +279,7 @@ def sampling_count_M8(all_nodes, adj_list_away, adj_list_toward, sample_percent)
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
     
-    for vertex1 in adj_list_away: #checks each vertex1 node
+    for vertex1 in tqdm(adj_list_away): #checks each vertex1 node
         for vertex2 in adj_list_away[vertex1]: #checks first child node
             
             #randomly sample a third vertex at uniform from all possible nodes
@@ -317,7 +317,7 @@ def sampling_count_M9(all_nodes, adj_list_away, adj_list_toward, sample_percent)
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
     
-    for vertex1 in adj_list_away: #checks each starting vertex
+    for vertex1 in tqdm(adj_list_away): #checks each starting vertex
         for vertex2 in adj_list_away[vertex1]: #access all possible nodes (vertex 2) from vertex 1
             
             #randomly sample a third vertex at uniform from all possible nodes
@@ -355,7 +355,7 @@ def sampling_count_M10(all_nodes, adj_list_away, adj_list_toward, sample_percent
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
     
-    for vertex1 in adj_list_away: #checks first vertex
+    for vertex1 in tqdm(adj_list_away): #checks first vertex
         for vertex2 in adj_list_toward[vertex1]: #checks second vertex
             
             #randomly sample a third vertex at uniform from all possible nodes
@@ -393,7 +393,7 @@ def sampling_count_M11(all_nodes, adj_list_away, adj_list_toward, sample_percent
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
     
-    for vertex1 in adj_list_away: #checks each vertex1 node
+    for vertex1 in tqdm(adj_list_away): #checks each vertex1 node
         for vertex2 in adj_list_away[vertex1]: #checks first child node
             
             #randomly sample a third vertex at uniform from all possible nodes
@@ -431,7 +431,7 @@ def sampling_count_M12(all_nodes, adj_list_away, adj_list_toward, sample_percent
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
     
-    for vertex1 in adj_list_away: #checks each starting vertex
+    for vertex1 in tqdm(adj_list_away): #checks each starting vertex
         for vertex2 in adj_list_away[vertex1]: #access all possible nodes (vertex 2) from vertex 1
             
             #randomly sample a third vertex at uniform from all possible nodes
@@ -469,7 +469,7 @@ def sampling_count_M13(all_nodes, adj_list_away, adj_list_toward, sample_percent
     #randomly sample third vertices at uniform from all possible nodes
     sampled_nodes = np.random.choice(all_nodes, num_sample)
     
-    for vertex1 in adj_list_away: #checks each vertex1 node
+    for vertex1 in tqdm(adj_list_away): #checks each vertex1 node
         for vertex2 in adj_list_away[vertex1]: #checks first child node
             
             #randomly sample a third vertex at uniform from all possible nodes
