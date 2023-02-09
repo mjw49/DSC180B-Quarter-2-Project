@@ -315,7 +315,7 @@ def count_M10(adj_list_away, adj_list_toward):
                 
                 if ((vertex2 not in adj_list_away[vertex1]) & (vertex3 not in adj_list_away[vertex1])
                     & (vertex2 not in adj_list_away[vertex3]) & (vertex3 not in adj_list_away[vertex2])
-                    & (vertex2 != vertex3)):
+                    & (vertex2 != vertex3) & (vertex2 != vertex1) & (vertex1 != vertex3)):
 
                     vertices.append([vertex1, vertex2, vertex3])
                     
