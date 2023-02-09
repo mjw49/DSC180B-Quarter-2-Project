@@ -307,11 +307,6 @@ def count_M10(adj_list_away, adj_list_toward):
         for vertex2 in adj_list_toward[vertex1]: #checks second vertex
             for vertex3 in adj_list_toward[vertex1]: #checks third vertex
                 
-                print("----------------------------------")
-                print("First vertex is: " + str(vertex1))
-                print("Second vertex is: " + str(vertex2))
-                print("Third vertex is: " + str(vertex3))
-                print("----------------------------------")
                 if ((vertex2 not in adj_list_away[vertex1]) & (vertex3 not in adj_list_away[vertex1])
                     & (vertex2 not in adj_list_away[vertex3]) & (vertex3 not in adj_list_away[vertex2])
                     & (vertex2 != vertex3)):
