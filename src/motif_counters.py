@@ -302,12 +302,22 @@ def count_M9(adj_list_away, adj_list_toward):
 
 def count_M10(adj_list_away, adj_list_toward):
     
+    count = 0
+
     vertices = []
     print("start motif counting")
     for vertex1 in tqdm(adj_list_away): #checks first vertex
+        count+=1
         for vertex2 in adj_list_toward[vertex1]: #checks second vertex
             for vertex3 in adj_list_toward[vertex1]: #checks third vertex
                 
+                if count == 17737:
+                    print('\n')
+                    print(vertex1)
+                    print(vertex2)
+                    print(vertex3)
+                    print('\n')
+
                 #if any of the adjacency lists are empty (nan used for placeholder) SKIP thia iteration
                 if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                     #print("EMPTINESS DETECTED")
