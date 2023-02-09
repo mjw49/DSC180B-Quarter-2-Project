@@ -307,6 +307,11 @@ def count_M10(adj_list_away, adj_list_toward):
         for vertex2 in adj_list_toward[vertex1]: #checks second vertex
             for vertex3 in adj_list_toward[vertex1]: #checks third vertex
                 
+                #if any of the adjacency lists are empty (nan used for placeholder, SKIP)
+                if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
+                    print("EMPTINESS DETECTED")
+                    break
+                
                 if ((vertex2 not in adj_list_away[vertex1]) & (vertex3 not in adj_list_away[vertex1])
                     & (vertex2 not in adj_list_away[vertex3]) & (vertex3 not in adj_list_away[vertex2])
                     & (vertex2 != vertex3)):
@@ -329,8 +334,6 @@ def count_M10(adj_list_away, adj_list_toward):
                 edge_dict[edge] += 1 #add to edge count
     
     return len(triangles), edge_dict
-
-
 
 
 

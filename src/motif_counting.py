@@ -24,11 +24,16 @@ def motif_counting(fp, motif):
     adj_list_toward = {}
 
     for node in range(min_node, max_node+1):
-        adj_list_away[node] = []
-        adj_list_toward[node] = []
+        adj_list_away[node] = [np.nan]
+        adj_list_toward[node] = [np.nan]
         
     #add an edge with a given start and end node to a given adjacency list 
     def add_edge(adj_list, node, target):
+    
+        #pop out the nan placeholder used to identify nodes that have no away/toward arrows
+        if np.isnan(adj_list[int(node)][0]):
+            adj_list[int(node)].pop()
+
         adj_list[int(node)].append(int(target))
     
     for idx, row in data.iterrows():
