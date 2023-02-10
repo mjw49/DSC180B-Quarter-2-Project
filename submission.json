@@ -1,4 +1,4 @@
 {
-    "dockerhub-id": "mjw49/q1project",
-    "build-script": "python run.py"
+    "GitHub Repository": "https://github.com/mjw49/DSC180A---Quarter-1-Project.git",
+    "DockerHub Repository": "mjw49q1project:latest"
 }
