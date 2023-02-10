@@ -301,8 +301,6 @@ def count_M9(adj_list_away, adj_list_toward):
 
 
 def count_M10(adj_list_away, adj_list_toward):
-    
-    count = 0
 
     vertices = []
     print("start motif counting")
