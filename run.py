@@ -7,7 +7,7 @@ from src import motif_algorithm
 
 def main(targets):
     if 'test' in targets:
-        with open('config/k-cluster-test-params.json') as fh:
+        with open('config/k-clusters-test-params.json') as fh:
             data_params = json.load(fh)
         print("starting k cluster algorithm on test target")
         motif_algorithm.run_k_clusters_algorithm(**data_params)
