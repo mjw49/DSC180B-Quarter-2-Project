@@ -14,8 +14,8 @@ def main(targets):
 
         with open('config/single-cluster-test-params.json') as fh:
             data_params = json.load(fh)
-        print("starting k cluster algorithm on test target")
-        motif_algorithm.run_single_clusters_algorithm(**data_params)
+        print("starting single cluster algorithm on test target")
+        motif_algorithm.run_single_cluster_algorithm(**data_params)
 
     if 'city_single' in targets:
         with open('config/city-single-cluster-params.json') as fh:
