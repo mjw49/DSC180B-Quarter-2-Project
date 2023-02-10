@@ -7,9 +7,13 @@ from src import motif_algorithm
 
 def main(targets):
     if 'test' in targets:
-        with open('config/motif-algorithm-params.json') as fh:
+        with open('config/k-cluster-test-params.json') as fh:
             data_params = json.load(fh)
         motif_algorithm.run_k_clusters_algorithm(**data_params)
+
+        with open('config/single-cluster-test-params.json') as fh:
+            data_params = json.load(fh)
+        motif_algorithm.run_single_clusters_algorithm(**data_params)
 
     if 'city_single' in targets:
         with open('config/city-single-cluster-params.json') as fh:
