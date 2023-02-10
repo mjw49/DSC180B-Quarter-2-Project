@@ -19,7 +19,9 @@ def run_k_clusters_algorithm(fp, motif, k):
     
     edge_counts = motif_counting(fp, motif)
     motif_adjacency_matrix = create_motif_adjacency_matrix(edge_counts)
-    cluster_dict = k_clusters(motif_adjacency_matrix, k)    
+    cluster_dict = k_clusters(motif_adjacency_matrix, k)
+    print("Here are the clusters generated from k-means\n)
+    print(cluster_dict)    
     return cluster_dict
 
 def run_single_cluster_sampling_algorithm(fp, motif, sample_percent):
