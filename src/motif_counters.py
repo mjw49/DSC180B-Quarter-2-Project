@@ -341,7 +341,6 @@ def count_M10(adj_list_away, adj_list_toward):
     vertices = []
     print("start motif counting")
     for vertex1 in tqdm(adj_list_away): #checks first vertex
-        count+=1
         for vertex2 in adj_list_toward[vertex1]: #checks second vertex
             for vertex3 in adj_list_toward[vertex1]: #checks third vertex
 

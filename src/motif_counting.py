@@ -87,7 +87,7 @@ def motif_counting(fp, motif):
     return edge_dict
 
 
-def sample_motif_counting(fp, motif, sample_percent):
+def sample_motif_counting(fp, motif, threshold):
     
     '''
     Input: filepath to transformed data (fp), motif (type of triangular pattern to count)
@@ -96,8 +96,6 @@ def sample_motif_counting(fp, motif, sample_percent):
     
     #read in file path
     data = pd.read_csv(fp, delimiter = ' ', usecols = ['FromNodeId', 'ToNodeId'])
-    
-    all_nodes = pd.concat([data['FromNodeId'], data['ToNodeId']]).unique()
 
     #initialize adjacency lists
     min_node = min(data['FromNodeId'].min(), data['ToNodeId'].min())
@@ -120,46 +118,46 @@ def sample_motif_counting(fp, motif, sample_percent):
     
     #count the given pattern
     if motif == 'M1':
-        motif_count, edge_dict = sampling_count_M1(all_nodes, adj_list_away, adj_list_toward, sample_percent)
+        motif_count, edge_dict = sampling_count_M1(adj_list_away, adj_list_toward, threshold)
         
     if motif == 'M2':
-        motif_count, edge_dict = sampling_count_M2(all_nodes, adj_list_away, adj_list_toward, sample_percent)
+        motif_count, edge_dict = sampling_count_M2(adj_list_away, adj_list_toward, threshold)
         
     if motif == 'M3':
-        motif_count, edge_dict = sampling_count_M3(all_nodes, adj_list_away, adj_list_toward, sample_percent)
+        motif_count, edge_dict = sampling_count_M3(adj_list_away, adj_list_toward, threshold)
         
     if motif == 'M4':
-        motif_count, edge_dict = sampling_count_M4(all_nodes, adj_list_away, adj_list_toward, sample_percent)
+        motif_count, edge_dict = sampling_count_M4(adj_list_away, adj_list_toward, threshold)
         
     if motif == 'M5':
-        motif_count, edge_dict = sampling_count_M5(all_nodes, adj_list_away, adj_list_toward, sample_percent)
+        motif_count, edge_dict = sampling_count_M5(adj_list_away, adj_list_toward, threshold)
         
     if motif == 'M6':
-        motif_count, edge_dict = sampling_count_M6(all_nodes, adj_list_away, adj_list_toward, sample_percent)
+        motif_count, edge_dict = sampling_count_M6(adj_list_away, adj_list_toward, threshold)
     
     if motif == 'M7':
-        motif_count, edge_dict = sampling_count_M7(all_nodes, adj_list_away, adj_list_toward, sample_percent)
+        motif_count, edge_dict = sampling_count_M7(adj_list_away, adj_list_toward, threshold)
         
     if motif == 'M8':
-        motif_count, edge_dict = sampling_count_M8(all_nodes, adj_list_away, adj_list_toward, sample_percent)
+        motif_count, edge_dict = sampling_count_M8(adj_list_away, adj_list_toward, threshold)
         
     if motif == 'M9':
-        motif_count, edge_dict = sampling_count_M9(all_nodes, adj_list_away, adj_list_toward, sample_percent)
+        motif_count, edge_dict = sampling_count_M9(adj_list_away, adj_list_toward, threshold)
     
     if motif == 'M10':
-        motif_count, edge_dict = sampling_count_M10(all_nodes, adj_list_away, adj_list_toward, sample_percent)
+        motif_count, edge_dict = sampling_count_M10(adj_list_away, adj_list_toward, threshold)
         
     if motif == 'M11':
-        motif_count, edge_dict = sampling_count_M11(all_nodes, adj_list_away, adj_list_toward, sample_percent)
+        motif_count, edge_dict = sampling_count_M11(adj_list_away, adj_list_toward, threshold)
         
     if motif == 'M12':
-        motif_count, edge_dict = sampling_count_M12(all_nodes, adj_list_away, adj_list_toward, sample_percent)
+        motif_count, edge_dict = sampling_count_M12(adj_list_away, adj_list_toward, threshold)
         
     if motif == 'M13':
-        motif_count, edge_dict = sampling_count_M13(all_nodes, adj_list_away, adj_list_toward, sample_percent)
+        motif_count, edge_dict = sampling_count_M13(adj_list_away, adj_list_toward, threshold)
     
     #display motif count
-    print("The number of instances of " + motif + " is " + str(motif_count))
+    print("The number of instances of " + motif + " with a sampling threshold of " + str(threshold) + " is " + str(motif_count))
     
     #return the edge dictionary
     return edge_dict
