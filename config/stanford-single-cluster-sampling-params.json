@@ -1,5 +1,5 @@
 {
   "fp": "test/web-Stanford_test.txt",
   "motif": "M10",
-  "sample_percent": 0.001
+  "threshold": 20
 }
