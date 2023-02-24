@@ -65,6 +65,8 @@ def single_cluster(W):
     # find the index of the minimal motif conductance
     minimum_index = np.argmin(conductances)
 
+    print("The smallest motif conductance is " + str(min(conductances)))
+
     # partition the cluster which achieves the minimum conductance
     optimal_cluster = np.array([x[1] for x in sorted_sigma[:minimum_index + 1]])
     return optimal_cluster

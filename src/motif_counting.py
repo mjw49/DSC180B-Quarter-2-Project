@@ -157,7 +157,7 @@ def sample_motif_counting(fp, motif, threshold):
         motif_count, edge_dict = sampling_count_M13(adj_list_away, adj_list_toward, threshold)
     
     #display motif count
-    print("The number of instances of " + motif + " with a sampling threshold of " + str(threshold) + " is " + str(motif_count))
+    print("The number of instances of " + motif + " with a sampling threshold of " + str(threshold) + " is " + str(int(motif_count)))
     
     #return the edge dictionary
     return edge_dict
