@@ -47,6 +47,16 @@ def main(targets):
             data_params = json.load(fh)
         motif_algorithm.run_k_clusters_sampling_algorithm(**data_params)
 
+    if 'sampling_physics_single' in targets:
+        with open('config/physics-single-cluster-sampling-params.json') as fh:
+            data_params = json.load(fh)
+        motif_algorithm.run_single_cluster_sampling_algorithm(**data_params)
+
+    if 'sampling_physics_k' in targets:
+        with open('config/physics-k-clusters-sampling-params.json') as fh:
+            data_params = json.load(fh)
+        motif_algorithm.run_k_clusters_sampling_algorithm(**data_params)
+
 if __name__ == '__main__':
     targets = sys.argv[1:]
     main(targets)
