@@ -1,0 +1,6 @@
+{
+  "fp": "test/reachability_test.txt",
+  "motif": "M10",
+  "k": 3,
+  "threshold": 20
+}

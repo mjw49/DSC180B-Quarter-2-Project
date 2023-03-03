@@ -816,8 +816,8 @@ def sampling_count_M13(adj_list_away, adj_list_toward, threshold):
     for vertex1 in tqdm(adj_list_away): #checks each vertex1 node
         for vertex2 in adj_list_away[vertex1]: #checks first child node
             
-            if len(adj_list_away[vertex1]) > threshold: #if the third vertex has a high enough degree, sample
-                sampled_nodes = np.random.choice(adj_list_away[vertex1], threshold)
+            if len(adj_list_away[vertex2]) > threshold: #if the third vertex has a high enough degree, sample
+                sampled_nodes = np.random.choice(adj_list_away[vertex2], threshold)
             
                 #randomly sample a third vertex at uniform from all possible nodes
                 for vertex3 in sampled_nodes:
@@ -826,9 +826,9 @@ def sampling_count_M13(adj_list_away, adj_list_toward, threshold):
                     if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                         break
 
-                    if ((vertex3 not in adj_list_away[vertex2]) & (vertex3 not in adj_list_toward[vertex2])
-                        & (vertex2 in adj_list_toward[vertex1]) & (vertex3 in adj_list_toward[vertex1])
-                        & (vertex2 != vertex3) & (vertex3 in adj_list_away[vertex1])):
+                    if ((vertex3 not in adj_list_away[vertex1]) & (vertex3 not in adj_list_toward[vertex1])
+                        & (vertex2 in adj_list_toward[vertex1]) & (vertex3 in adj_list_toward[vertex2])
+                        & (vertex1 != vertex3)):
 
                         vertices.append([vertex1, vertex2, vertex3])
                         temp_count = (1/(threshold/len(adj_list_away[vertex1])))
