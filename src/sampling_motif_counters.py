@@ -24,9 +24,7 @@ def sampling_count_M1(adj_list_away, adj_list_toward, threshold):
                     if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                         break
 
-                    if ((vertex1 in adj_list_away[vertex3]) & (vertex1 not in adj_list_toward[vertex3])
-                        & (vertex3 not in adj_list_toward[vertex2]) & (vertex2 not in adj_list_toward[vertex1])
-                        & (vertex3 in adj_list_away[vertex2])):
+                    if ((vertex1 in adj_list_away[vertex3])):
 
                         vertices.append([vertex1, vertex2, vertex3])
                         temp_count = (1/(threshold/len(adj_list_away[vertex2])))
@@ -49,9 +47,7 @@ def sampling_count_M1(adj_list_away, adj_list_toward, threshold):
                     if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                         break
 
-                    if ((vertex1 in adj_list_away[vertex3]) & (vertex1 not in adj_list_toward[vertex3])
-                        & (vertex3 not in adj_list_toward[vertex2]) & (vertex2 not in adj_list_toward[vertex1])
-                        & (vertex3 in adj_list_away[vertex2])):
+                    if ((vertex1 in adj_list_away[vertex3])):
 
                         vertices.append([vertex1, vertex2, vertex3])
                         normal_count += 1
@@ -90,8 +86,7 @@ def sampling_count_M2(adj_list_away, adj_list_toward, threshold):
                     if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                         break
 
-                    if ((vertex1 in adj_list_away[vertex3]) & (vertex1 not in adj_list_toward[vertex3])
-                        & (vertex3 not in adj_list_toward[vertex2]) & (vertex2 in adj_list_toward[vertex1])
+                    if ((vertex1 in adj_list_away[vertex3]) & (vertex2 in adj_list_toward[vertex1])
                         & (vertex3 in adj_list_away[vertex2])):
 
                         vertices.append([vertex1, vertex2, vertex3])
@@ -115,8 +110,7 @@ def sampling_count_M2(adj_list_away, adj_list_toward, threshold):
                     if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                         break
 
-                    if ((vertex1 in adj_list_away[vertex3]) & (vertex1 not in adj_list_toward[vertex3])
-                        & (vertex3 not in adj_list_toward[vertex2]) & (vertex2 in adj_list_toward[vertex1])
+                    if ((vertex1 in adj_list_away[vertex3]) & ((vertex2 in adj_list_toward[vertex1])
                         & (vertex3 in adj_list_away[vertex2])):
 
                         vertices.append([vertex1, vertex2, vertex3])
@@ -156,9 +150,8 @@ def sampling_count_M3(adj_list_away, adj_list_toward, threshold):
                     if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                         break
 
-                    if ((vertex1 in adj_list_away[vertex3]) & (vertex1 not in adj_list_toward[vertex3])
-                        & (vertex3 in adj_list_toward[vertex2]) & (vertex2 in adj_list_toward[vertex1])
-                        & (vertex3 in adj_list_away[vertex2])):
+                    if ((vertex1 in adj_list_away[vertex3]) & (vertex3 in adj_list_toward[vertex2]) 
+                        & (vertex2 in adj_list_toward[vertex1]) & (vertex3 in adj_list_away[vertex2])):
 
                         vertices.append([vertex1, vertex2, vertex3])
                         temp_count = (1/(threshold/len(adj_list_away[vertex2])))
@@ -181,9 +174,8 @@ def sampling_count_M3(adj_list_away, adj_list_toward, threshold):
                     if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                         break
 
-                    if ((vertex1 in adj_list_away[vertex3]) & (vertex1 not in adj_list_toward[vertex3])
-                        & (vertex3 in adj_list_toward[vertex2]) & (vertex2 in adj_list_toward[vertex1])
-                        & (vertex3 in adj_list_away[vertex2])):
+                    if ((vertex1 in adj_list_away[vertex3]) & (vertex3 in adj_list_toward[vertex2]) 
+                        & (vertex2 in adj_list_toward[vertex1]) & (vertex3 in adj_list_away[vertex2])):
 
                         vertices.append([vertex1, vertex2, vertex3])
                         normal_count += 1
@@ -272,6 +264,7 @@ def sampling_count_M4(adj_list_away, adj_list_toward, threshold):
     return final_count, edge_dict
 
 
+
 def sampling_count_M5(adj_list_away, adj_list_toward, threshold):
     
     vertices = []
@@ -283,8 +276,8 @@ def sampling_count_M5(adj_list_away, adj_list_toward, threshold):
     for vertex1 in tqdm(adj_list_away): #checks each parent node
         for vertex2 in adj_list_away[vertex1]: #checks first child node
             
-            if len(adj_list_away[vertex1]) > threshold: #if the third vertex has a high enough degree, sample
-                sampled_nodes = np.random.choice(adj_list_away[vertex1], threshold)
+            if len(adj_list_away[vertex2]) > threshold: #if the third vertex has a high enough degree, sample
+                sampled_nodes = np.random.choice(adj_list_away[vertex2], threshold)
             
                 #randomly sample a third vertex at uniform from all possible nodes
                 for vertex3 in sampled_nodes:
@@ -293,12 +286,10 @@ def sampling_count_M5(adj_list_away, adj_list_toward, threshold):
                     if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                         break
 
-                    if ((vertex3 in adj_list_away[vertex2]) & (vertex3 not in adj_list_toward[vertex2])
-                        & (vertex2 not in adj_list_toward[vertex1]) & (vertex3 not in adj_list_toward[vertex1])
-                        & (vertex3 in adj_list_away[vertex1])):
+                    if ((vertex3 in adj_list_away[vertex1])):
 
                         vertices.append([vertex1, vertex2, vertex3])
-                        temp_count = (1/(threshold/len(adj_list_away[vertex1])))
+                        temp_count = (1/(threshold/len(adj_list_away[vertex2])))
                         sample_count += temp_count
                         
                         combos = list(itertools.combinations([vertex1, vertex2, vertex3], 2))
@@ -312,15 +303,13 @@ def sampling_count_M5(adj_list_away, adj_list_toward, threshold):
                         
             else: #if the degree is lower than the threshold, sample like normal
                 
-                for vertex3 in adj_list_away[vertex1]:
+                for vertex3 in adj_list_away[vertex2]:
 
                     #if any of the adjacency lists are empty (nan used for placeholder) SKIP this iteration
                     if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                         break
 
-                    if ((vertex3 in adj_list_away[vertex2]) & (vertex3 not in adj_list_toward[vertex2])
-                        & (vertex2 not in adj_list_toward[vertex1]) & (vertex3 not in adj_list_toward[vertex1])
-                        & (vertex3 in adj_list_away[vertex1])):
+                    if ((vertex3 in adj_list_away[vertex1])):
 
                         vertices.append([vertex1, vertex2, vertex3])
                         normal_count += 1
@@ -338,6 +327,8 @@ def sampling_count_M5(adj_list_away, adj_list_toward, threshold):
     
     return final_count, edge_dict
 
+
+
 def sampling_count_M6(adj_list_away, adj_list_toward, threshold):
     
     vertices = []
@@ -349,8 +340,8 @@ def sampling_count_M6(adj_list_away, adj_list_toward, threshold):
     for vertex1 in tqdm(adj_list_away): #checks each parent node
         for vertex2 in adj_list_away[vertex1]: #checks first child node
             
-            if len(adj_list_away[vertex1]) > threshold: #if the third vertex has a high enough degree, sample
-                sampled_nodes = np.random.choice(adj_list_away[vertex1], threshold)
+            if len(adj_list_away[vertex2]) > threshold: #if the third vertex has a high enough degree, sample
+                sampled_nodes = np.random.choice(adj_list_away[vertex2], threshold)
             
                 #randomly sample a third vertex at uniform from all possible nodes
                 for vertex3 in sampled_nodes:
@@ -359,12 +350,10 @@ def sampling_count_M6(adj_list_away, adj_list_toward, threshold):
                     if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                         break
 
-                    if ((vertex3 in adj_list_away[vertex2]) & (vertex3 in adj_list_toward[vertex2])
-                        & (vertex2 not in adj_list_toward[vertex1]) & (vertex3 not in adj_list_toward[vertex1])
-                        & (vertex3 in adj_list_away[vertex1])):
+                    if ((vertex3 in adj_list_away[vertex1]) & (vertex3 in adj_list_toward[vertex2])):
 
                         vertices.append([vertex1, vertex2, vertex3])
-                        temp_count = (1/(threshold/len(adj_list_away[vertex1])))
+                        temp_count = (1/(threshold/len(adj_list_away[vertex2])))
                         sample_count += temp_count
                         
                         combos = list(itertools.combinations([vertex1, vertex2, vertex3], 2))
@@ -378,15 +367,13 @@ def sampling_count_M6(adj_list_away, adj_list_toward, threshold):
                         
             else: #if the degree is lower than the threshold, sample like normal
                 
-                for vertex3 in adj_list_away[vertex1]:
+                for vertex3 in adj_list_away[vertex2]:
 
                     #if any of the adjacency lists are empty (nan used for placeholder) SKIP this iteration
                     if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                         break
 
-                    if ((vertex3 in adj_list_away[vertex2]) & (vertex3 in adj_list_toward[vertex2])
-                        & (vertex2 not in adj_list_toward[vertex1]) & (vertex3 not in adj_list_toward[vertex1])
-                        & (vertex3 in adj_list_away[vertex1])):
+                    if ((vertex3 in adj_list_away[vertex1]) & (vertex3 in adj_list_toward[vertex2])):
 
                         vertices.append([vertex1, vertex2, vertex3])
                         normal_count += 1
@@ -405,6 +392,7 @@ def sampling_count_M6(adj_list_away, adj_list_toward, threshold):
     return final_count, edge_dict
 
 
+
 def sampling_count_M7(adj_list_away, adj_list_toward, threshold):
     
     vertices = []
@@ -414,10 +402,10 @@ def sampling_count_M7(adj_list_away, adj_list_toward, threshold):
     edge_dict = {}
     
     for vertex1 in tqdm(adj_list_away): #checks each parent node
-        for vertex2 in adj_list_toward[vertex1]: #checks first child node
+        for vertex2 in adj_list_away[vertex1]: #checks first child node
             
-            if len(adj_list_toward[vertex1]) > threshold: #if the third vertex has a high enough degree, sample
-                sampled_nodes = np.random.choice(adj_list_toward[vertex1], threshold)
+            if len(adj_list_away[vertex2]) > threshold: #if the third vertex has a high enough degree, sample
+                sampled_nodes = np.random.choice(adj_list_away[vertex2], threshold)
             
                 #randomly sample a third vertex at uniform from all possible nodes
                 for vertex3 in sampled_nodes:  
@@ -426,12 +414,10 @@ def sampling_count_M7(adj_list_away, adj_list_toward, threshold):
                     if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                         break
 
-                    if ((vertex2 not in adj_list_away[vertex1]) & (vertex3 not in adj_list_away[vertex1])
-                       & (vertex2 in adj_list_away[vertex3]) & (vertex3 in adj_list_away[vertex2])
-                       & (vertex3 in adj_list_toward[vertex1])):
+                    if ((vertex3 in adj_list_away[vertex1]) & (vertex1 in adj_list_away[vertex2])):
 
                         vertices.append([vertex1, vertex2, vertex3])
-                        temp_count = (1/(threshold/len(adj_list_toward[vertex1])))
+                        temp_count = (1/(threshold/len(adj_list_away[vertex2])))
                         sample_count += temp_count
                         
                         combos = list(itertools.combinations([vertex1, vertex2, vertex3], 2))
@@ -445,15 +431,13 @@ def sampling_count_M7(adj_list_away, adj_list_toward, threshold):
                         
             else:
                 
-                for vertex3 in adj_list_toward[vertex1]: #checks third vertex
+                for vertex3 in adj_list_away[vertex2]: #checks third vertex
                     
                     #if any of the adjacency lists are empty (nan used for placeholder) SKIP this iteration
                     if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                         break
 
-                    if ((vertex2 not in adj_list_away[vertex1]) & (vertex3 not in adj_list_away[vertex1])
-                       & (vertex2 in adj_list_away[vertex3]) & (vertex3 in adj_list_away[vertex2])
-                       & (vertex3 in adj_list_toward[vertex1])):
+                    if ((vertex3 in adj_list_away[vertex1]) & (vertex1 in adj_list_away[vertex2])):
 
                         vertices.append([vertex1, vertex2, vertex3])
                         normal_count += 1
@@ -470,6 +454,7 @@ def sampling_count_M7(adj_list_away, adj_list_toward, threshold):
     final_count = (sample_count+normal_count)/2
     
     return final_count, edge_dict
+
 
 
 def sampling_count_M8(adj_list_away, adj_list_toward, threshold):
@@ -537,6 +522,7 @@ def sampling_count_M8(adj_list_away, adj_list_toward, threshold):
     final_count = (sample_count+normal_count)/2
     
     return final_count, edge_dict
+
 
 
 def sampling_count_M9(adj_list_away, adj_list_toward, threshold):
@@ -613,7 +599,7 @@ def sampling_count_M10(adj_list_away, adj_list_toward, threshold):
     normal_count = 0
     edge_dict = {}
     
-    for vertex1 in tqdm(adj_list_away): #checks first vertex
+    for vertex1 in adj_list_away:#for vertex1 in tqdm(adj_list_away): #checks first vertex
         for vertex2 in adj_list_toward[vertex1]: #checks second vertex
             
             if len(adj_list_toward[vertex1]) > threshold: #if the third vertex has a high enough degree, sample
@@ -670,6 +656,8 @@ def sampling_count_M10(adj_list_away, adj_list_toward, threshold):
     final_count = (sample_count+normal_count)/2
     
     return final_count, edge_dict
+
+
 
 def sampling_count_M11(adj_list_away, adj_list_toward, threshold):
 
@@ -736,6 +724,7 @@ def sampling_count_M11(adj_list_away, adj_list_toward, threshold):
     final_count = (sample_count+normal_count)
     
     return final_count, edge_dict
+
 
 
 def sampling_count_M12(adj_list_away, adj_list_toward, threshold):

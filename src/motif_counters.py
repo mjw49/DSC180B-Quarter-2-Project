@@ -17,11 +17,14 @@ def count_M1(adj_list_away, adj_list_toward):
                 if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                     break
                 
-                if ((vertex1 in adj_list_away[vertex3]) & (vertex1 not in adj_list_toward[vertex3])
-                    & (vertex3 not in adj_list_toward[vertex2]) & (vertex2 not in adj_list_toward[vertex1])):
+#                 if ((vertex1 in adj_list_away[vertex3]) & (vertex1 not in adj_list_toward[vertex3])
+#                     & (vertex3 not in adj_list_toward[vertex2]) & (vertex2 not in adj_list_toward[vertex1])):
+                    
+                if ((vertex1 in adj_list_away[vertex3])):
                     
                     vertices.append([vertex1, vertex2, vertex3])
     
+      
     triangles = set(tuple(sorted(l)) for l in vertices) #get rid of permutations of the same triangle
     
     edge_dict = {}
@@ -37,7 +40,9 @@ def count_M1(adj_list_away, adj_list_toward):
                 edge_dict[edge] = 1
             else:                            #if edge does exist
                 edge_dict[edge] += 1 #add to edge count
-    
+
+    print('Vertices: ' + str(len(vertices)))
+    print('Triangles: ' + str(len(triangles)))
     return len(triangles), edge_dict
 
 
@@ -54,8 +59,10 @@ def count_M2(adj_list_away, adj_list_toward):
                 if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                     break
                 
-                if ((vertex1 in adj_list_away[vertex3]) & (vertex1 not in adj_list_toward[vertex3])
-                    & (vertex3 not in adj_list_toward[vertex2]) & (vertex2 in adj_list_toward[vertex1])):
+#                 if ((vertex1 in adj_list_away[vertex3]) & (vertex1 not in adj_list_toward[vertex3])
+#                     & (vertex3 not in adj_list_toward[vertex2]) & (vertex2 in adj_list_toward[vertex1])):
+                    
+                if ((vertex1 in adj_list_away[vertex3]) & (vertex2 in adj_list_toward[vertex1])):
                     
                     vertices.append([vertex1, vertex2, vertex3])
                     
@@ -73,7 +80,9 @@ def count_M2(adj_list_away, adj_list_toward):
                 edge_dict[edge] = 1
             else:                            #if edge does exist
                 edge_dict[edge] += 1 #add to edge count
-    
+
+    print('Vertices: ' + str(len(vertices)))
+    print('Triangles: ' + str(len(triangles)))
     return len(triangles), edge_dict
 
 
@@ -90,8 +99,11 @@ def count_M3(adj_list_away, adj_list_toward):
                 if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                     break
                 
-                if ((vertex1 in adj_list_away[vertex3]) & (vertex1 not in adj_list_toward[vertex3])
-                    & (vertex3 in adj_list_toward[vertex2]) & (vertex2 in adj_list_toward[vertex1])):
+#                 if ((vertex1 in adj_list_away[vertex3]) & (vertex1 not in adj_list_toward[vertex3])
+#                     & (vertex3 in adj_list_toward[vertex2]) & (vertex2 in adj_list_toward[vertex1])):
+                    
+                if ((vertex1 in adj_list_away[vertex3]) & (vertex3 in adj_list_toward[vertex2]) 
+                    & (vertex2 in adj_list_toward[vertex1])):
                     
                     vertices.append([vertex1, vertex2, vertex3])
                     
@@ -109,7 +121,9 @@ def count_M3(adj_list_away, adj_list_toward):
                 edge_dict[edge] = 1
             else:                            #if edge does exist
                 edge_dict[edge] += 1 #add to edge count
-    
+ 
+    print('Vertices: ' + str(len(vertices)))
+    print('Triangles: ' + str(len(triangles)))
     return len(triangles), edge_dict
 
 
@@ -146,9 +160,10 @@ def count_M4(adj_list_away, adj_list_toward):
                 edge_dict[edge] = 1
             else:                            #if edge does exist
                 edge_dict[edge] += 1 #add to edge count
-    
-    return len(triangles), edge_dict
 
+    print('Vertices: ' + str(len(vertices)))
+    print('Triangles: ' + str(len(triangles)))
+    return len(triangles), edge_dict
 
 
 
@@ -158,14 +173,16 @@ def count_M5(adj_list_away, adj_list_toward):
     
     for vertex1 in tqdm(adj_list_away): #checks first vertex
         for vertex2 in adj_list_away[vertex1]: #checks second vertex
-            for vertex3 in adj_list_away[vertex1]: #checks third vertex
+            for vertex3 in adj_list_away[vertex2]: #checks third vertex
                 
                 #if any of the adjacency lists are empty (nan used for placeholder) SKIP this iteration
                 if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                     break
                 
-                if ((vertex3 in adj_list_away[vertex2]) & (vertex3 not in adj_list_toward[vertex2])
-                    & (vertex2 not in adj_list_toward[vertex1]) & (vertex3 not in adj_list_toward[vertex1])):
+#                 if ((vertex3 in adj_list_away[vertex2]) & (vertex3 not in adj_list_toward[vertex2])
+#                     & (vertex2 not in adj_list_toward[vertex1]) & (vertex3 not in adj_list_toward[vertex1])):
+                    
+                if ((vertex3 in adj_list_away[vertex1])):
                     
                     vertices.append([vertex1, vertex2, vertex3])
                     
@@ -183,7 +200,9 @@ def count_M5(adj_list_away, adj_list_toward):
                 edge_dict[edge] = 1
             else:                            #if edge does exist
                 edge_dict[edge] += 1 #add to edge count
-    
+                
+    print('Vertices: ' + str(len(vertices)))
+    print('Triangles: ' + str(len(triangles)))
     return len(triangles), edge_dict
 
 
@@ -194,14 +213,16 @@ def count_M6(adj_list_away, adj_list_toward):
     
     for vertex1 in tqdm(adj_list_away): #checks first vertex
         for vertex2 in adj_list_away[vertex1]: #checks second vertex
-            for vertex3 in adj_list_away[vertex1]: #checks third vertex
+            for vertex3 in adj_list_away[vertex2]: #checks third vertex
                 
                 #if any of the adjacency lists are empty (nan used for placeholder) SKIP this iteration
                 if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                     break
                 
-                if ((vertex3 in adj_list_away[vertex2]) & (vertex3 in adj_list_toward[vertex2])
-                    & (vertex2 not in adj_list_toward[vertex1]) & (vertex3 not in adj_list_toward[vertex1])):
+#                 if ((vertex3 in adj_list_away[vertex2]) & (vertex3 in adj_list_toward[vertex2])
+#                     & (vertex2 not in adj_list_toward[vertex1]) & (vertex3 not in adj_list_toward[vertex1])):
+                    
+                if ((vertex3 in adj_list_away[vertex1]) & (vertex3 in adj_list_toward[vertex2])):
                     
                     vertices.append([vertex1, vertex2, vertex3])
                     
@@ -219,7 +240,9 @@ def count_M6(adj_list_away, adj_list_toward):
                 edge_dict[edge] = 1
             else:                            #if edge does exist
                 edge_dict[edge] += 1 #add to edge count
-    
+
+    print('Vertices: ' + str(len(vertices)))
+    print('Triangles: ' + str(len(triangles)))
     return len(triangles), edge_dict
 
 
@@ -229,15 +252,17 @@ def count_M7(adj_list_away, adj_list_toward):
     vertices = []
     
     for vertex1 in tqdm(adj_list_away): #checks first vertex
-        for vertex2 in adj_list_toward[vertex1]: #checks second vertex
-            for vertex3 in adj_list_toward[vertex1]: #checks third vertex
+        for vertex2 in adj_list_away[vertex1]: #checks second vertex
+            for vertex3 in adj_list_away[vertex2]: #checks third vertex
                 
                 #if any of the adjacency lists are empty (nan used for placeholder) SKIP this iteration
                 if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                     break
                 
-                if ((vertex2 not in adj_list_away[vertex1]) & (vertex3 not in adj_list_away[vertex1])
-                   & (vertex2 in adj_list_away[vertex3]) & (vertex3 in adj_list_away[vertex2])):
+#                 if ((vertex2 not in adj_list_away[vertex1]) & (vertex3 not in adj_list_away[vertex1])
+#                    & (vertex2 in adj_list_away[vertex3]) & (vertex3 in adj_list_away[vertex2])):
+                    
+                if ((vertex3 in adj_list_away[vertex1]) & (vertex1 in adj_list_away[vertex2])):
                     
                     vertices.append([vertex1, vertex2, vertex3])
                     
@@ -255,7 +280,9 @@ def count_M7(adj_list_away, adj_list_toward):
                 edge_dict[edge] = 1
             else:                            #if edge does exist
                 edge_dict[edge] += 1 #add to edge count
-    
+
+    print('Vertices: ' + str(len(vertices)))
+    print('Triangles: ' + str(len(triangles)))
     return len(triangles), edge_dict
 
 
@@ -295,6 +322,8 @@ def count_M8(adj_list_away, adj_list_toward):
             else: #if edge does exist
                 edge_dict[edge] += 1 #add to edge count
 
+    print('Vertices: ' + str(len(vertices)))
+    print('Triangles: ' + str(len(triangles)))
     return len(triangles), edge_dict
 
 
@@ -332,6 +361,8 @@ def count_M9(adj_list_away, adj_list_toward):
             else:                            #if edge does exist
                 edge_dict[edge] += 1 #add to edge count
     
+    print('Vertices: ' + str(len(vertices)))
+    print('Triangles: ' + str(len(triangles)))
     return len(triangles), edge_dict
 
 
@@ -353,7 +384,8 @@ def count_M10(adj_list_away, adj_list_toward):
                     & (vertex2 != vertex3) & (vertex2 != vertex1) & (vertex1 != vertex3)):
 
                     vertices.append([vertex1, vertex2, vertex3])
-                    
+    
+    print('Number of triangles before the set operations: ' + str(len(vertices)))        
     triangles = set(tuple(sorted(l)) for l in vertices) #get rid of permutations of the same triangle
     
     edge_dict = {}
@@ -368,7 +400,9 @@ def count_M10(adj_list_away, adj_list_toward):
                 edge_dict[edge] = 1
             else:                            #if edge does exist
                 edge_dict[edge] += 1 #add to edge count
-    
+
+    print('Vertices: ' + str(len(vertices)))
+    print('Triangles: ' + str(len(triangles)))
     return len(triangles), edge_dict
 
 
@@ -405,7 +439,9 @@ def count_M11(adj_list_away, adj_list_toward):
                 edge_dict[edge] = 1
             else: #if edge does exist
                 edge_dict[edge] += 1 #add to edge count
-
+                
+    print('Vertices: ' + str(len(vertices)))
+    print('Triangles: ' + str(len(triangles)))
     return len(triangles), edge_dict
 
 
@@ -446,6 +482,8 @@ def count_M12(adj_list_away, adj_list_toward):
             else:                            #if edge does exist
                 edge_dict[edge] += 1 #add to edge count
     
+    print('Vertices: ' + str(len(vertices)))
+    print('Triangles: ' + str(len(triangles)))
     return len(triangles), edge_dict
 
 
@@ -485,5 +523,6 @@ def count_M13(adj_list_away, adj_list_toward):
                 edge_dict[edge] = 1
             else: #if edge does exist
                 edge_dict[edge] += 1 #add to edge count
-
+    print('Vertices: ' + str(len(vertices)))
+    print('Triangles: ' + str(len(triangles)))
     return len(triangles), edge_dict
