@@ -3,6 +3,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 def single_cluster(adj_matrix):
+    print("start single cluster")
     '''
     Input: motif adjacency matrix (W)
     Output:
@@ -25,7 +26,7 @@ def single_cluster(adj_matrix):
     # calculate the eigenvalues and eigenvectors 
     eig = np.linalg.eig(L)
     eigenvalues, eigenvectors = eig[0], eig[1]
-    print("calculated eigenstuff")
+    print("calculated eigenvalues ad eigenvectors")
 
     # create sorted eigenvalue, eigenvector pairs
     eigenpairs = []
