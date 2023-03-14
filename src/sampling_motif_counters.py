@@ -599,7 +599,7 @@ def sampling_count_M10(adj_list_away, adj_list_toward, threshold):
     normal_count = 0
     edge_dict = {}
     
-    for vertex1 in adj_list_away:#for vertex1 in tqdm(adj_list_away): #checks first vertex
+    for vertex1 in tqdm(adj_list_away): #checks first vertex
         for vertex2 in adj_list_toward[vertex1]: #checks second vertex
             
             if len(adj_list_toward[vertex1]) > threshold: #if the third vertex has a high enough degree, sample

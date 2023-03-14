@@ -97,6 +97,7 @@ def sample_motif_counting(fp, motif, threshold):
     #read in file path
     data = pd.read_csv(fp, delimiter = ' ', usecols = ['FromNodeId', 'ToNodeId'])
 
+    print("creating adjacency lists")
     #initialize adjacency lists
     min_node = min(data['FromNodeId'].min(), data['ToNodeId'].min())
     max_node = max(data['FromNodeId'].max(), data['ToNodeId'].max())
