@@ -250,6 +250,8 @@ def count_M6(adj_list_away, adj_list_toward):
 def count_M7(adj_list_away, adj_list_toward):
     
     vertices = []
+
+    print(adj_list_away)
     
     for vertex1 in tqdm(adj_list_away): #checks first vertex
         for vertex2 in adj_list_away[vertex1]: #checks second vertex
