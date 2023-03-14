@@ -110,7 +110,7 @@ def sampling_count_M2(adj_list_away, adj_list_toward, threshold):
                     if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
                         break
 
-                    if ((vertex1 in adj_list_away[vertex3]) & ((vertex2 in adj_list_toward[vertex1])
+                    if ((vertex1 in adj_list_away[vertex3]) & (vertex2 in adj_list_toward[vertex1])
                         & (vertex3 in adj_list_away[vertex2])):
 
                         vertices.append([vertex1, vertex2, vertex3])
