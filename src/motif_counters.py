@@ -250,16 +250,19 @@ def count_M6(adj_list_away, adj_list_toward):
 def count_M7(adj_list_away, adj_list_toward):
     
     vertices = []
-
-    print(adj_list_away)
     
     for vertex1 in tqdm(adj_list_away): #checks first vertex
+        if ( (np.isnan(vertex1)):
+            break
         for vertex2 in adj_list_away[vertex1]: #checks second vertex
+            if ( (np.isnan(vertex2)):
+                break
             for vertex3 in adj_list_away[vertex2]: #checks third vertex
-                
-                #if any of the adjacency lists are empty (nan used for placeholder) SKIP this iteration
-                if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
+                if ( (np.isnan(vertex3)):
                     break
+                #if any of the adjacency lists are empty (nan used for placeholder) SKIP this iteration
+#                 if ( (np.isnan(vertex1)) | (np.isnan(vertex2)) | (np.isnan(vertex3)) ):
+#                     break
                 
 #                 if ((vertex2 not in adj_list_away[vertex1]) & (vertex3 not in adj_list_away[vertex1])
 #                    & (vertex2 in adj_list_away[vertex3]) & (vertex3 in adj_list_away[vertex2])):
