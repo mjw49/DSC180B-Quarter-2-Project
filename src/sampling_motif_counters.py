@@ -598,7 +598,7 @@ def sampling_count_M10(adj_list_away, adj_list_toward, threshold):
     sample_count = 0
     normal_count = 0
     edge_dict = {}
-    
+    print("start sample motif counting")
     for vertex1 in tqdm(adj_list_away): #checks first vertex
         for vertex2 in adj_list_toward[vertex1]: #checks second vertex
             
@@ -654,7 +654,7 @@ def sampling_count_M10(adj_list_away, adj_list_toward, threshold):
                                 edge_dict[edge] += 1 #add to edge count  
                         
     final_count = (sample_count+normal_count)/2
-    
+    print("Sample motif count of M10 is " + str(final_count))
     return final_count, edge_dict
 
 
